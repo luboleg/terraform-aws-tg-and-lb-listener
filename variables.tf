@@ -60,3 +60,7 @@ variable "nlb_arn" {
 variable "vpc_id" {
   description = "VPC ID"
 }
+
+variable "tg_name" {
+  description = "Target group name"
+}
