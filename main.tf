@@ -22,9 +22,14 @@ module "target_group_label" {
 
 }
 
+resource "random_string" "random_string" {
+  length  = 3
+  special = false
+  upper   = false
+}
 
 resource "aws_lb_target_group" "tg" {
-  name        = module.target_group_label.id
+  name        = "${module.target_group_label.id}-${random_string.random_string}"
   port        = var.tcp_port
   protocol    = "TCP"
   vpc_id      = var.vpc_id
